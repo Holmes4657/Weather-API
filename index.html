@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <img class="logo" src="./images/logo.png" alt="">
+        <span class="logospan">Weather API</span>
+        
+        <form class="temp">
+            <select name="Temp" id="tempSelect">
+                <option value="cilcius">°C</option>
+                <option value="fahrenheit">°F</option>
+            </select>
+        </form>
+    </div>
+    
+    <div class="search">
+        <span class="findDescription">Find City:</span>
+        <input class="findCity" type="search" placeholder="Enter">
+    </div>
+    
+    <div class="card">
+        <div id="cityDiv" class="city"></div>
+        <div id="mainInformation" class="mainInformation"></div>
+        <div id="weatherDiv" class="weatherDIV"></div>
+        <img class="noimage" src="./images/stub.png" alt="">
+        <div id="weatherimgdescription"></div>
+    </div>
+    
+    <script src="./main.js"></script>
+</body>
+</html>

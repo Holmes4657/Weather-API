@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    height: 70px;
+    border: 2px solid black;
+    box-sizing: border-box;
+    position: relative;
+    background-color: #D3D3D3;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+}
+
+.logospan {
+    font-family: 'Roboto';
+    position: absolute;
+    bottom: 10%;
+    left: 7%;
+    font-size: 30px;
+}
+
+#tempSelect {
+    position: absolute;
+    bottom: 37%;
+    left: 90%;
+    padding: 0 10px 0 0;
+    border-radius: 7px;
+    font-size: 17px;
+    outline: 0;
+    border: 2px solid grey;
+}
+
+.card {
+    font-family: 'Roboto';
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    height: 300px;
+    width: 900px;
+}
+
+.city {
+    margin-top: 1.2%;
+    margin-left: 1.2%;
+    font-weight: 700;
+    font-size: 20px;
+    color: #66CDAA;
+}
+
+.mainInformation {
+    padding-top: 1.2%;
+    padding-left: 2%;
+    font-size: 37px;
+}
+
+.noimage {
+    position: absolute;
+    top: 16%;
+    left: 70.7%;
+    width: 100px;
+    height: 100px;
+}
+
+#weatherimgdescription {
+    font-size: 17px;
+    font-weight: 700;
+    position: absolute;
+    top: 30%;
+    left: 70.7%;
+    color: #708090;
+}
+
+.search {
+    font-family: 'Roboto';
+    border: 2px solid black;
+    padding-top: 0.2%;
+    padding-bottom: 0.2%;
+    border-bottom: none;
+    border-right: none;
+}
+
+.findCity {
+    outline: 0; 
+    border-width: 0 0 2px;
+    border-color: black;
+    padding: 0.4%;
+}
+
+.findDescription {
+    margin: 0.7%;
+}
