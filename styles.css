@@ -4,12 +4,14 @@ body {
 
 .header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     height: 70px;
     border: 2px solid black;
     box-sizing: border-box;
-    position: relative;
     background-color: #D3D3D3;
+    border-bottom: 0;
 }
 
 .logo {
@@ -19,30 +21,28 @@ body {
 
 .logospan {
     font-family: 'Roboto';
-    position: absolute;
-    bottom: 10%;
-    left: 7%;
     font-size: 30px;
 }
 
 #tempSelect {
-    position: absolute;
-    bottom: 37%;
-    left: 90%;
     padding: 0 10px 0 0;
     border-radius: 7px;
     font-size: 17px;
     outline: 0;
     border: 2px solid grey;
+    margin-left: -27%;
 }
+
+/*-------------------------------HEADER-END---------------------------------*/
 
 .card {
     font-family: 'Roboto';
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
     border: 2px solid black;
     height: 300px;
-    width: 900px;
+    width: 80%;
 }
 
 .city {
@@ -60,7 +60,7 @@ body {
 }
 
 .noimage {
-    position: absolute;
+    /* position: absolute; */
     top: 16%;
     left: 70.7%;
     width: 100px;
@@ -70,11 +70,13 @@ body {
 #weatherimgdescription {
     font-size: 17px;
     font-weight: 700;
-    position: absolute;
+    /* position: absolute; */
     top: 30%;
     left: 70.7%;
     color: #708090;
 }
+
+/*-------------------------------INFO-END-----------------------------------*/
 
 .search {
     font-family: 'Roboto';

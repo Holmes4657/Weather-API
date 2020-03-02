@@ -9,8 +9,11 @@
 </head>
 <body>
     <div class="header">
-        <img class="logo" src="./images/logo.png" alt="">
-        <span class="logospan">Weather API</span>
+        
+        <div class="headerLogo">
+            <img class="logo" src="./images/logo.png" alt="">
+            <span class="logospan">Weather API</span>
+        </div>
         
         <form class="temp">
             <select name="Temp" id="tempSelect">
@@ -26,11 +29,18 @@
     </div>
     
     <div class="card">
-        <div id="cityDiv" class="city"></div>
-        <div id="mainInformation" class="mainInformation"></div>
-        <div id="weatherDiv" class="weatherDIV"></div>
-        <img class="noimage" src="./images/stub.png" alt="">
-        <div id="weatherimgdescription"></div>
+        <div class="mainInformationCard">
+            <div id="cityDiv" class="city"></div>
+            <div id="mainInformation" class="mainInformation"></div>
+            <div id="timezone" class="timezone"></div>
+        </div>
+        
+
+        <div class="showImage">
+            <img class="noimage" src="./images/stub.png" alt="">
+            <div id="weatherimgdescription"></div>
+        </div>
+        
     </div>
     
     <script src="./main.js"></script>
