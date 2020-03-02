@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather API</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="header">
         
-        <div class="headerLogo">
-            <img class="logo" src="./images/logo.png" alt="">
-            <span class="logospan">Weather API</span>
+        <div class="header__logo">
+            <img class="header__logo-logo" src="./images/logo.png" alt="">
+            <span class="header__logo-logospan">Weather API</span>
         </div>
         
-        <form class="temp">
-            <select name="Temp" id="tempSelect">
+        <form class="header__temp">
+            <select name="Temp" class="header__temp-tempSelect" id="tempSelect">
                 <option value="cilcius">°C</option>
                 <option value="fahrenheit">°F</option>
             </select>
@@ -24,23 +24,22 @@
     </div>
     
     <div class="search">
-        <span class="findDescription">Find City:</span>
-        <input class="findCity" type="search" placeholder="Enter">
+        <span class="search-findDescription">Find City:</span>
+        <input class="search-findCity" type="text" placeholder="Enter">
     </div>
     
     <div class="card">
-        <div class="mainInformationCard">
-            <div id="cityDiv" class="city"></div>
-            <div id="mainInformation" class="mainInformation"></div>
-            <div id="timezone" class="timezone"></div>
+        <div class="card__mainInfoCard">
+            <div class="card__mainInfoCard-cityDiv" id="cityDiv"></div>
+            <div class="card__mainInfoCard-mainInformation" id="mainInformation"></div>
+            <div class="card__mainInfoCard-timezone" id="timezone"></div>
         </div>
         
+        <div class="card__weatherInfo">
+            <div class="card__weatherInfo-showImage"></div>
+            <div class="card__weatherInfo-imgDescription" id="imgDescription"></div>
+        </div>
 
-        <div class="showImage">
-            <img class="noimage" src="./images/stub.png" alt="">
-            <div id="weatherimgdescription"></div>
-        </div>
-        
     </div>
     
     <script src="./main.js"></script>
