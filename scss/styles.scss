@@ -12,7 +12,6 @@ body {
     border: 2px solid black;
     box-sizing: border-box;
     background-color: #D3D3D3;
-    border-bottom: 0;
 
     &__logo {
         &-logo {
@@ -34,25 +33,6 @@ body {
     margin-left: -27%;
 }
 
-.search {
-    border: 2px solid black;
-    padding-top: 0.2%;
-    padding-bottom: 0.2%;
-    border-bottom: none;
-    border-right: none;
-
-    &-findDescription {
-        margin: 0.7%;
-    }
-
-    &-findCity {
-        outline: 0; 
-        border-width: 0 0 2px;
-        border-color: black;
-        padding: 0.4%;
-    }
-}
-
 .card {
     display: flex;
     justify-content: space-between;
@@ -60,6 +40,7 @@ body {
     border: 2px solid black;
     height: 300px;
     width: 80%;
+    border-top: 0;
 
     &__mainInfoCard {
         margin-top: 0.7%;
@@ -79,12 +60,17 @@ body {
             font-size: 37px;
         }
 
-        &-timezone {
+        &-humidity {
+
+        }
+
+        &-feelslike {
 
         }
     }
 
     &__weatherInfo {
+        margin-right: 1%;
         &-showImage {
             
         }
@@ -93,6 +79,16 @@ body {
             font-size: 17px;
             font-weight: 700;
             color: #708090;
+            text-transform: capitalize;
+        }
+        
+        &-sunriseInfo {
+            margin-top: 7%;
+            color:#778899
+        }
+
+        &-sunsetInfo {
+            color:#778899
         }
     }
 }

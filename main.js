@@ -1,8 +1,11 @@
 const cityDiv = document.getElementById('cityDiv');
-const timezone = document.getElementById('timezone');
+const humidity = document.getElementById('humidity');
 const mainInfomation = document.getElementById('mainInformation');
 const description = document.getElementById('imgDescription');
 const activeTemp = document.getElementById('tempSelect');
+const feelslike = document.getElementsByClassName('card__mainInfoCard-feelslike')[0];
+const sunriseInfo = document.getElementsByClassName('card__weatherInfo-sunriseInfo')[0];
+const sunsetInfo = document.getElementsByClassName('card__weatherInfo-sunsetInfo')[0];
 
 async function apiLoad() {
     const resp = await fetch("https://api.openweathermap.org/data/2.5/weather?q=Gomel&appid=802a121e8d5faa4aecf1cde8bb779008");
@@ -16,32 +19,46 @@ activeTemp.addEventListener('change', () => {
 
 //Main Information
 function showInformation(item) {
-    let cilcius = JSON.stringify(item.main.temp) - 273;
     //City
     cityDiv.innerText = "Current city is " + item.name + ', ' + JSON.stringify(item.sys.country).replace(/\"/g, "");   
     //Timezone 
-    timezone.innerText = "current timezone is " + item.timezone;
+    humidity.innerText = "Humidity: " + item.main.humidity + "%";
     //Temputure
-    mainInfomation.innerText = Math.floor(cilcius) + "°C";
+    mainInfomation.innerText = convertTocilcius(item.main.temp) + "°C";
     //Description
-    description.innerText = JSON.stringify(item.weather[0].main).replace(/\"/g, ""); //Remove quotes
+    description.innerText = JSON.stringify(item.weather[0].description).replace(/\"/g, ""); //Remove quotes
+    //Feels Like
+    feelslike.innerText = "Feels like " + convertTocilcius(item.main.feels_like) + "°C";
+    //Sunrise
+    sunriseInfo.innerText = "Sunrise: " + convertUnixToJS(item.sys.sunrise);
+    //Sunset
+    sunsetInfo.innerText = "Sunset: " + convertUnixToJS(item.sys.sunset);
 
     console.log(item);
 }
+//-------------------------------------------------------
 
 //Convert
 function convertTemp(item) {
-    //Convert from kelvin into cilcius
-    let cilcius = JSON.stringify(item.main.temp) - 273;
-    let fahrenheit = (JSON.stringify(item.main.temp) - 273.15) * 9 / 5 + 32;
-
     if(activeTemp.value == 'cilcius') {
-        mainInfomation.innerText = Math.floor(cilcius) + "°C";
+        mainInfomation.innerText = convertTocilcius(item.main.temp) + "°C";
+        feelslike.innerText = "Feels like " + convertTocilcius(item.main.feels_like) + "°C";
     }
     if(activeTemp.value == 'fahrenheit') {
-        mainInfomation.innerText = Math.floor(fahrenheit) + "°F";
+        mainInfomation.innerText = convertToFahrenheit(item.main.temp) + "°F";
+        feelslike.innerText = "Feels like " + convertToFahrenheit(item.main.feels_like) + "°F";
     }
 }
+
+function convertUnixToJS(unixTime) {
+    let date = new Date(unixTime * 1000);
+
+    let hours = date.getHours();
+    let minutes = "0" + date.getMinutes();
+
+    return formattedTime = hours + ':' + minutes.substr(-2); //Show Only two numbers
+}
+//------------------------------------------------
 
 //Draw Image
 const showImageDiv = document.getElementsByClassName('card__weatherInfo-showImage')[0];
@@ -56,6 +73,17 @@ function drawWeatherImage1(showImageDiv) {
     showImageDiv.innerHTML = '';
     showImageDiv(element => drawWeatherImage(element));
 }
+//-------------------------------------------
+
+//Convert Function
+function convertTocilcius(data) {
+    return Number(((data) - 273).toFixed(1));
+}
+
+function convertToFahrenheit(data) {
+    return Number(((data - 273.15) * 9 / 5 + 32).toFixed(1));
+}
+//---------------------------------------------
 
 apiLoad().then(data => showInformation(data));
 apiLoad().then(data => drawWeatherImage(data));
